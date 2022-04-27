@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{theorem} \PYG{n}{integral\PYGZus{}supr} \PYG{p}{\PYGZob{}}\PYG{n+nl}{f} \PYG{p}{:} \PYG{esc}{$\N \to $} \PYG{n}{a} \PYG{esc}{$ \to \R \ge 0 \infty $}\PYG{p}{\PYGZcb{}}
+\PYG{p}{(}\PYG{n+nl}{hf} \PYG{p}{:} \PYG{esc}{$\forall$} \PYG{n}{n}\PYG{p}{,} \PYG{n}{ae\PYGZus{}measurable} \PYG{p}{(}\PYG{n}{f} \PYG{n}{n}\PYG{p}{)} \PYG{n}{u}\PYG{p}{)}
+  \PYG{p}{(}\PYG{n+nl}{h\PYGZus{}mono} \PYG{p}{:} \PYG{esc}{$\forall^m$} \PYG{n}{x} \PYG{n}{du}\PYG{p}{,} \PYG{n}{monotone} \PYG{p}{(}\PYG{esc}{$\lambda$} \PYG{n}{n}\PYG{p}{,} \PYG{n}{f} \PYG{n}{n} \PYG{n}{x}\PYG{p}{)}\PYG{p}{)} \PYG{o}{:}
+  \PYG{p}{(}\PYG{esc}{$int^-$} \PYG{n}{a}\PYG{p}{,} \PYG{esc}{$\cup$}\PYG{n}{n}\PYG{p}{,} \PYG{n}{f} \PYG{n}{n} \PYG{n}{a} \PYG{n}{du}\PYG{p}{)} \PYG{o}{=} \PYG{p}{(}\PYG{esc}{$\cup$} \PYG{n}{n}\PYG{p}{,} \PYG{esc}{$\int^-$} \PYG{n}{a}\PYG{p}{,} \PYG{n}{f} \PYG{n}{n} \PYG{n}{a} \PYG{n}{du}\PYG{p}{)} \PYG{o}{:}\PYG{o}{=}
+\end{Verbatim}

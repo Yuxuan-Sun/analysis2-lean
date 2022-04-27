@@ -1,0 +1,75 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Affeldt et~al.()Affeldt, Cohen, Kerjean, Mahboubi, Rouhling, and
+  Sakaguchi]{affeldt_formalizing_nodate}
+R.~Affeldt, C.~Cohen, M.~Kerjean, A.~Mahboubi, D.~Rouhling, and K.~Sakaguchi.
+\newblock Formalizing functional analysis structures in dependent type theory.
+\newblock page~18.
+
+\bibitem[Avigad et~al.(2016)Avigad, de~Moura, and Kong]{Avigad2016}
+J.~Avigad, L.~de~Moura, and S.~Kong.
+\newblock {Theorem Proving in Lean}.
+\newblock 1 2016.
+\newblock \doi{10.1184/R1/6492902.v1}.
+\newblock URL
+  \url{https://kilthub.cmu.edu/articles/journal_contribution/Theorem_Proving_in_Lean/6492902}.
+
+\bibitem[Bezem et~al.()Bezem, Buchholtz, Cagne, Dundas, and
+  Grayson]{bezem_werner_nodate}
+M.~Bezem, U.~Buchholtz, P.~Cagne, B.~I. Dundas, and D.~R. Grayson.
+\newblock Werner {Heisenberg}, {Der} {Teil} und das {Ganze}: {Gespräche} im
+  {Umkreis} der {Atomphysik}, 1969, {English} translation, {Physics} and
+  {Beyond}, 1971.
+\newblock page 209.
+
+\bibitem[Boldo et~al.(2016)Boldo, Lelay, and
+  Melquiond]{boldo_formalization_2016}
+S.~Boldo, C.~Lelay, and G.~Melquiond.
+\newblock Formalization of real analysis: a survey of proof assistants and
+  libraries.
+\newblock \emph{Mathematical Structures in Computer Science}, 26\penalty0
+  (7):\penalty0 1196--1233, Oct. 2016.
+\newblock ISSN 0960-1295, 1469-8072.
+\newblock \doi{10.1017/S0960129514000437}.
+\newblock URL
+  \url{https://www.cambridge.org/core/product/identifier/S0960129514000437/type/journal_article}.
+
+\bibitem[Grayson(2018)]{grayson_introduction_2018}
+D.~R. Grayson.
+\newblock An introduction to univalent foundations for mathematicians.
+\newblock \emph{Bulletin of the American Mathematical Society}, 55\penalty0
+  (4):\penalty0 427--450, Mar. 2018.
+\newblock ISSN 0273-0979, 1088-9485.
+\newblock \doi{10.1090/bull/1616}.
+\newblock URL \url{http://arxiv.org/abs/1711.01477}.
+\newblock arXiv: 1711.01477.
+
+\bibitem[Lundfall()]{lundfall_formalizing_nodate}
+M.~Lundfall.
+\newblock Formalizing {Real} {Numbers} in {Agda}.
+\newblock page~62.
+
+\bibitem[Palmer()]{palmer_set_nodate}
+J.~Palmer.
+\newblock Set {Theory}, {Type} {Theory} and the future of {Proof}
+  {Veriﬁcation} {Software}.
+\newblock page~33.
+
+\bibitem[Program(2013)]{program_homotopy_2013}
+T.~U.~F. Program.
+\newblock Homotopy {Type} {Theory}: {Univalent} {Foundations} of {Mathematics}.
+\newblock \emph{arXiv:1308.0729 [cs, math]}, Aug. 2013.
+\newblock URL \url{http://arxiv.org/abs/1308.0729}.
+\newblock arXiv: 1308.0729.
+
+\bibitem[Rijke(2021)]{rijke_introduction_2021}
+E.~Rijke.
+\newblock Introduction to {Homotopy} {Type} {Theory}.
+\newblock page 478, 2021.
+
+\end{thebibliography}

@@ -1,0 +1,11 @@
+mini progress report - Analysis II paper
+
+1. canonical set theory / PFC
+source: doi: 10.20944/preprints202007.0415.v1
+Canonical Set Theory for Classic Mathematics: A Linear Order on Finite Groups and Structures, with a Natural Extension to Infinite Structures 
+
+2. proof verification of real anlaysis
+- understand a library proof
+- or: code a proof about basic real analysis property: e.g. different ways of defining continuity
+
+book source: herrlich axiom of choice

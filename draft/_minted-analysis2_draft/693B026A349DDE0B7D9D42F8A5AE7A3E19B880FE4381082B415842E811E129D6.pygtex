@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{lemma} \PYG{n}{uniqueMax} \PYG{p}{(}\PYG{n+nl}{A} \PYG{p}{:} \PYG{n}{set} \PYG{esc}{$\R$}\PYG{p}{)} \PYG{p}{(}\PYG{n}{x} \PYG{n+nl}{y} \PYG{p}{:} \PYG{esc}{$\R$}\PYG{p}{)} \PYG{p}{(}\PYG{n+nl}{hx} \PYG{p}{:} \PYG{n}{is\PYGZus{}maximum} \PYG{n}{x} \PYG{n}{A}\PYG{p}{)} \PYG{p}{(}\PYG{n+nl}{hy} \PYG{p}{:} \PYG{n}{is\PYGZus{}maximum} \PYG{n}{y} \PYG{n}{A}\PYG{p}{)}
+\PYG{o}{:} \PYG{n}{x} \PYG{o}{=} \PYG{n+nl}{y}
+\PYG{p}{:}\PYG{o}{=}
+\PYG{n}{begin}
+ 	\PYG{n+nl}{have} \PYG{p}{:} \PYG{n}{x} \PYG{esc}{$\le $} \PYG{n}{y}\PYG{p}{,} \PYG{n}{from} \PYG{n}{hy}\PYG{l+m+mf}{.2} \PYG{n}{x} \PYG{n}{hx}\PYG{l+m+mf}{.1}\PYG{p}{,}
+	\PYG{n+nl}{have} \PYG{p}{:} \PYG{n}{y} \PYG{esc}{$\le$} \PYG{n}{x}\PYG{p}{,} \PYG{n}{from} \PYG{n}{hx}\PYG{l+m+mf}{.2} \PYG{n}{y} \PYG{n}{hy}\PYG{l+m+mf}{.1}\PYG{p}{,}
+	\PYG{n}{linarith}\PYG{p}{,}
+\PYG{n}{end}
+\end{Verbatim}

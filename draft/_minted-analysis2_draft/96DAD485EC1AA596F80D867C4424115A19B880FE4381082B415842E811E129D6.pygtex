@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{lemma} \PYG{n}{sequenceAdd} \PYG{p}{(}\PYG{n+nl}{hu} \PYG{p}{:} \PYG{n}{seq\PYGZus{}limit} \PYG{n}{u} \PYG{n}{l1}\PYG{p}{)} \PYG{p}{(}\PYG{n+nl}{hv} \PYG{p}{:} \PYG{n}{seq\PYGZus{}limit} \PYG{n}{v} \PYG{n}{l2}\PYG{p}{)} \PYG{o}{:}
+\PYG{n}{seq\PYGZus{}limit} \PYG{p}{(} \PYG{n}{u} \PYG{o}{+} \PYG{n}{v}\PYG{p}{)} \PYG{p}{(}\PYG{n}{l1} \PYG{o}{+} \PYG{n}{l2}\PYG{p}{)}
+\PYG{o}{:}\PYG{o}{=}
+\PYG{n}{begin}
+\PYG{o}{!}\PYG{o}{!}\PYG{o}{!} \PYG{n}{fill} \PYG{n}{in} \PYG{n}{later}
+\PYG{n}{end}
+\end{Verbatim}

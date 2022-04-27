@@ -1,0 +1,127 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb, amsfonts, latexsym, amsthm, amsmath, framed}
+\usepackage{esvect}
+\usepackage{parskip}
+
+\usepackage{amsmath, amssymb, framed, tcolorbox}
+\tcbuselibrary{theorems}
+
+\usepackage{listings}
+
+\usepackage[hidelinks,colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear,open={},close={}}
+
+\newcommand{\ba}{\backslash}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\rank}{\text{rank}}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
+}
+\newcounter{mytheorem}[section] \def\themytheorem{\thesection.\arabic{mytheorem}}
+\tcbset{
+defstyle/.style={fonttitle=\bfseries\upshape,
+arc=0mm, colback=yellow!5,colframe=yellow!80!black}, 
+theostyle/.style={fonttitle=\bfseries\upshape, colback=blue!5,colframe=blue!50!black},
+corstyle/.style={fonttitle=\bfseries\upshape, colback=green!5,colframe=green!30!black},
+}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\pdfsuppresswarningpagegroup=1
+
+\title{Analysis 2 Term Paper Proposal}
+\author{Yuxuan Sun}
+
+
+\begin{document}
+	
+\maketitle
+
+\section{Introduction}
+This paper aims to explore the formalization of real analysis and possibly functional analysis in homotopy type theory using proof assistants. As modern mathematics becomes more abstract and the correctness of proofs relies on mutual-trust, verifications by computers could be helpful. Due to the characteristics of type theory, which will be explained later on, current popular proof assistants are based on it.
+
+The ideal outline of the paper would be sufficient introductions on type theory at the beginning such that some formalizations of theorems in analysis could be understood. 
+
+\section{type theory vs. set theory(informal)}
+
+Both homotopy type theory and Zermelo-Fraenkel set theory are foundational language for mathematics.
+
+Set theory has two "layers": the deductive system of first-order logic, and, the axioms of a particularly theory, such as ZFC. Thus, set theory is more about the interplay between sets (the objects of the second layer) and propositions (the objects of the first layer).
+
+Type theory only has one: types. Propositions are identified with particular types.
+
+A deductive system is a collection of rules for deriving judgments.
+
+In the deduction system of first-order logic, there is only one kind of judgment: a given proposition has a proof.
+
+In type theory, to say $A$ has a proof, we will write $a : A$, pronounced as: the term  $a$ has type  $A$. When $A$ is a type representing a proposition, then  $a$ maybe called a witness to the provability of  $A$ or evidence of the truth of  $A$.
+
+A crucial difference is that $a: A$ is a judgment whereas  $a \in A$ is a proposition. One could use rules to derive from a judgement yet can neither prove nor disprove a judgement(\citep{program_homotopy_2013}).
+
+\section{Martin-Löf’s Dependent Type Theory}
+All from \citep{rijke_introduction_2021}.
+
+\begin{definition}
+	There are four kinds of judgments in Martin-Löf's dependent type theory: \begin{enumerate}
+
+		\item $A$ is a (well-formed) type in context $\Gamma$. We express this judgment as
+			\[\Gamma \vdash A \text{type} \]
+		\item $A$ and $B$ are judgmentally equal types in context $\Gamma$. We express this judgment as
+			\[\Gamma \vdash A \doteq B \text { type. }\]
+		\item $a$ is a (well-formed) term of type $A$ in context $\Gamma$. We express this judgment as
+			\[\Gamma \vdash a: A \]
+		\item $a$ and $b$ are judgmentally equal terms of type $A$ in context $\Gamma$. We express this judgment as
+\[\Gamma \vdash a \doteq b: A \text {. }\]
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[context]
+	A \textit{context} is a finite list of variable declarations \[
+	x_{1}: A_{1}, x_{2}: A_{2}\left(x_{1}\right), \ldots, x_{n}: A_{n}\left(x_{1}, \ldots, x_{n-1}\right)
+	\] satisfying the condition that for each $1 \le k \le n$ we can derive the judgment \[
+	x_{1}: A_{1}, \ldots, x_{k-1}: A_{k-1}\left(x_{1}, \ldots, x_{k-2}\right) \vdash A_{k}\left(x_{1}, \ldots, x_{k-1}\right)\text{type}
+	\] using the inference rules of type theory.
+\end{definition}
+
+Some definitions that will be included: family, inference rules, fiber. (maybe will be in appendix?)
+
+\section{implementation}
+
+\begin{lstlisting}[language=Haskell]
+data N : Set where
+  zero : N
+  suc : (n : N) -> N
+_+_ : N -> N -> N
+zero   + n = n
+suc m + n = suc (m + n)
+\end{lstlisting}
+
+For example, number $2$ will be written as  $suc(suc(zero))$ (\citep{lundfall_formalizing_nodate}).
+
+There will also be a brief summary on the construction of rational number with an appendix of code (it's too long), referencing from  \citep{lundfall_formalizing_nodate} as well.
+
+A reference for formalizing functional analysis structures is  \citep{affeldt_formalizing_nodate}.
+
+
+\newpage
+\bibliography{ref}
+\end{document}
