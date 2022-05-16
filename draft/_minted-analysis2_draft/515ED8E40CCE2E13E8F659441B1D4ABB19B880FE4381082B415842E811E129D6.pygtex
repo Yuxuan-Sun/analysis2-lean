@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{def} \PYG{n}{seq\PYGZus{}limit} \PYG{p}{(}\PYG{n+nl}{u} \PYG{p}{:} \PYG{esc}{$\N \to \R$}\PYG{p}{)} \PYG{p}{(}\PYG{n+nl}{l} \PYG{p}{:} \PYG{esc}{$\R$}\PYG{p}{)} \PYG{o}{:} \PYG{n+nl}{Prop} \PYG{p}{:}\PYG{o}{=}
+\PYG{esc}{$\forall \epsilon > 0, \exists $} \PYG{n}{N}\PYG{p}{,} \PYG{esc}{$\forall$} \PYG{n}{n} \PYG{esc}{$\ge$} \PYG{n}{N}\PYG{p}{,} \PYG{esc}{$\mid$}\PYG{n}{u} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{l}\PYG{esc}{$\mid$} \PYG{esc}{$\le  \epsilon$}
+\end{Verbatim}

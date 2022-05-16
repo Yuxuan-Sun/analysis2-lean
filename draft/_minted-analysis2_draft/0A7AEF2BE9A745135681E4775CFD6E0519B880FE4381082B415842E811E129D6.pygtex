@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{lemma} \PYG{n}{lintegral\PYGZus{}nnnorm\PYGZus{}add}
+  \PYG{p}{\PYGZob{}}\PYG{n+nl}{f} \PYG{p}{:} \PYG{n}{a} \PYG{esc}{$\to$} \PYG{n}{b}\PYG{p}{\PYGZcb{}} \PYG{p}{\PYGZob{}}\PYG{n+nl}{g} \PYG{p}{:} \PYG{n}{a} \PYG{esc}{$\to$} \PYG{n}{y}\PYG{p}{\PYGZcb{}}
+  \PYG{p}{(}\PYG{n+nl}{hf} \PYG{p}{:} \PYG{n}{ae\PYGZus{}strongly\PYGZus{}measurable} \PYG{n}{f} \PYG{n}{u}\PYG{p}{)}
+  \PYG{p}{(}\PYG{n+nl}{hg} \PYG{p}{:} \PYG{n}{ae\PYGZus{}strongly\PYGZus{}measurable} \PYG{n}{g} \PYG{n}{u}\PYG{p}{)}
+  \PYG{o}{:} \PYG{esc}{$ \int^- $} \PYG{n}{a}\PYG{p}{,} \PYG{n}{nnnorm} \PYG{p}{(}\PYG{n}{f} \PYG{n}{a}\PYG{p}{)} \PYG{o}{+} \PYG{n}{nnnorm} \PYG{p}{(}\PYG{n}{g} \PYG{n}{a}\PYG{p}{)} \PYG{n}{du} \PYG{o}{=}
+  	\PYG{esc}{$\int^-$} \PYG{n}{a}\PYG{p}{,} \PYG{n}{nnnorm} \PYG{p}{(}\PYG{n}{f} \PYG{n}{a}\PYG{p}{)} \PYG{n}{du} \PYG{o}{+} \PYG{esc}{$\int^-$} \PYG{n}{a}\PYG{p}{,} \PYG{n}{nnnorm} \PYG{p}{(}\PYG{n}{g} \PYG{n}{a}\PYG{p}{)} \PYG{n}{du}	
+\end{Verbatim}

@@ -17,6 +17,64 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{affeldt}{article}{}
+    \name{author}{6}{}{%
+      {{hash=AR}{%
+         family={Affeldt},
+         familyi={A\bibinitperiod},
+         given={Reynald},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CC}{%
+         family={Cohen},
+         familyi={C\bibinitperiod},
+         given={Cyril},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kerjean},
+         familyi={K\bibinitperiod},
+         given={Marie},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Mahboubi},
+         familyi={M\bibinitperiod},
+         given={Assia},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RD}{%
+         family={Rouhling},
+         familyi={R\bibinitperiod},
+         given={Damien},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Sakaguchi},
+         familyi={S\bibinitperiod},
+         given={Kazuhiko},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{AR+1}
+    \strng{fullhash}{ARCCKMMARDSK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{pages}{18}
+    \field{title}{Formalizing functional analysis structures in dependent type
+  theory}
+    \verb{file}
+    \verb Affeldt et al. - Formalizing functional analysis structures in depe.p
+    \verb df:/Users/yuxuansun/Zotero/storage/MSIGU468/Affeldt et al. - Formaliz
+    \verb ing functional analysis structures in depe.pdf:application/pdf
+    \endverb
+  \endentry
+
   \entry{Avigad2016}{article}{}
     \name{author}{3}{}{%
       {{hash=AJ}{%

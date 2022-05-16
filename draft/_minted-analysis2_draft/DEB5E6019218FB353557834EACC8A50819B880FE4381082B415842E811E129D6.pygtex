@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{lemma} \PYG{n}{sequenceAdd} \PYG{p}{(}\PYG{n+nl}{hu} \PYG{p}{:} \PYG{n}{seq\PYGZus{}limit} \PYG{n}{u} \PYG{n}{l1}\PYG{p}{)} \PYG{p}{(}\PYG{n+nl}{hv} \PYG{p}{:} \PYG{n}{seq\PYGZus{}limit} \PYG{n}{v} \PYG{n}{l2}\PYG{p}{)} \PYG{o}{:}
+\PYG{n}{seq\PYGZus{}limit} \PYG{p}{(} \PYG{n}{u} \PYG{o}{+} \PYG{n}{v}\PYG{p}{)} \PYG{p}{(}\PYG{n}{l1} \PYG{o}{+} \PYG{n}{l2}\PYG{p}{)}
+\PYG{o}{:}\PYG{o}{=}
+\PYG{n}{begin}
+	\PYG{n}{intros} \PYG{esc}{$\epsilon$} \PYG{esc}{$\epsilon$}\PYG{n}{\PYGZus{}pos}\PYG{p}{,}
+	\PYG{n}{cases} \PYG{n}{hu} \PYG{p}{(}\PYG{esc}{$\epsilon$}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{p}{(}\PYG{n}{by} \PYG{n}{linarith}\PYG{p}{)} \PYG{n}{with} \PYG{n}{N1} \PYG{n}{hN1}\PYG{p}{,}
+	\PYG{n}{cases} \PYG{n}{hv} \PYG{p}{(}\PYG{esc}{$\epsilon$}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{p}{(}\PYG{n}{by} \PYG{n}{linarith}\PYG{p}{)} \PYG{n}{with} \PYG{n}{N2} \PYG{n}{hN2}\PYG{p}{,}
+	\PYG{n}{use} \PYG{n}{max} \PYG{n}{N1}\PYG{p}{,} \PYG{n}{N2}\PYG{p}{,}
+	\PYG{n}{intros} \PYG{n}{n} \PYG{n}{hn}\PYG{p}{,}
+	\PYG{n}{rewrite} \PYG{n}{ge\PYGZus{}max\PYGZus{}iff} \PYG{n}{at} \PYG{n}{hn}\PYG{p}{,}
+	\PYG{n}{calc}
+	\PYG{esc}{$\mid$} \PYG{p}{(}\PYG{n}{u} \PYG{o}{+} \PYG{n}{v}\PYG{p}{)} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{l1} \PYG{o}{+} \PYG{n}{l2}\PYG{p}{)} \PYG{esc}{$\mid$} \PYG{o}{=} \PYG{esc}{$\mid$} \PYG{n}{un} \PYG{o}{+} \PYG{n}{vn} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{l1} \PYG{o}{+} \PYG{n}{l2}\PYG{p}{)} \PYG{esc}{$\mid$} \PYG{o}{:}\PYG{n}{rfl}
+	\PYG{p}{.} \PYG{p}{.} \PYG{p}{.} \PYG{o}{=} \PYG{esc}{$\mid$} \PYG{p}{(}\PYG{n}{u} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{l1}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{n}{v} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{l2}\PYG{p}{)} \PYG{esc}{$\mid$} \PYG{o}{:} \PYG{n}{by} \PYG{n}{congr} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{ring}
+	\PYG{p}{.} \PYG{p}{.} \PYG{p}{.} \PYG{esc}{$\le$} \PYG{esc}{$\mid$} \PYG{n}{un} \PYG{o}{\PYGZhy{}} \PYG{n}{l1} \PYG{esc}{$\mid$} \PYG{o}{+} \PYG{esc}{$\mid$} \PYG{n}{vn} \PYG{o}{\PYGZhy{}} \PYG{n}{l2} \PYG{esc}{$\mid$} \PYG{o}{:} \PYG{n}{by} \PYG{n}{apply} \PYG{n}{abs\PYGZus{}add}
+	\PYG{p}{.} \PYG{p}{.} \PYG{p}{.} \PYG{esc}{$\le$} \PYG{esc}{$\epsilon$} \PYG{o}{:} \PYG{n}{by} \PYG{n}{linarith} \PYG{p}{[}\PYG{n}{hN1} \PYG{n}{n} \PYG{p}{(}\PYG{n}{by} \PYG{n}{linarith}\PYG{p}{)}\PYG{p}{,} \PYG{n}{hN2} \PYG{n}{n} \PYG{p}{(}\PYG{n}{by} \PYG{n}{linarith}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{end}
+\end{Verbatim}

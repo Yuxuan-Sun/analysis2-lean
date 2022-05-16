@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{def} \PYG{n}{upperBounds} \PYG{p}{(}\PYG{n+nl}{A} \PYG{p}{:} \PYG{n}{set} \PYG{esc}{$\R$}\PYG{p}{)} \PYG{o}{:}\PYG{o}{=} \PYG{p}{\PYGZob{}} \PYG{n+nl}{x} \PYG{p}{:} \PYG{esc}{$\R \quad \vert \quad  \forall $} \PYG{n}{a} \PYG{esc}{$\in $} \PYG{n}{A}\PYG{p}{,}  \PYG{n}{a} \PYG{esc}{$\le$} \PYG{n}{x} \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

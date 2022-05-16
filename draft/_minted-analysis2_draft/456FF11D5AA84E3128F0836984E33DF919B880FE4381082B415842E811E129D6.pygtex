@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{have} \PYG{n+nl}{fact1} \PYG{p}{:}  \PYG{esc}{$\mid$}\PYG{n}{u} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{l1}\PYG{esc}{$\mid$} \PYG{esc}{$\le$} \PYG{esc}{$\epsilon$}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{,}
+    \PYG{n}{from} \PYG{n}{hN1} \PYG{n}{n} \PYG{p}{(}\PYG{n}{by} \PYG{n}{linarith}\PYG{p}{)}\PYG{p}{,}
+\PYG{n}{have} \PYG{n+nl}{fact2} \PYG{p}{:} \PYG{esc}{$\mid$}\PYG{n}{v} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{l2}\PYG{esc}{$\mid$} \PYG{esc}{$\le$} \PYG{esc}{$\epsilon$}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{,}
+    \PYG{n}{from} \PYG{n}{hN2} \PYG{n}{n} \PYG{p}{(}\PYG{n}{by} \PYG{n}{linarith}\PYG{p}{)}\PYG{p}{,}
+\end{Verbatim}

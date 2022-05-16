@@ -1,0 +1,238 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amssymb, amsfonts, latexsym, amsthm, amsmath, framed}
+\usepackage{esvect}
+\usepackage{parskip}
+
+\usepackage{amsmath, amssymb, framed, tcolorbox}
+\tcbuselibrary{theorems}
+
+\usepackage[hidelinks,colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage[backend=bibtex,isbn=false,url=false]{biblatex}
+
+\addbibresource{ref.bib}
+
+\newcommand{\ba}{\backslash}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\rank}{\text{rank}}
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
+}
+\newcounter{mytheorem}[section] \def\themytheorem{\thesection.\arabic{mytheorem}}
+\tcbset{
+defstyle/.style={fonttitle=\bfseries\upshape,
+arc=0mm, colback=yellow!5,colframe=yellow!80!black}, 
+theostyle/.style={fonttitle=\bfseries\upshape, colback=blue!5,colframe=blue!50!black},
+corstyle/.style={fonttitle=\bfseries\upshape, colback=green!5,colframe=green!30!black},
+}
+
+\tcbmaketheorem{Definition}{Definition}{defstyle}{mytheorem}{def}
+\tcbmaketheorem{Theorem}{Theorem}{theostyle}{mytheorem}{theo}
+\tcbmaketheorem{Corollary}{Corollary}{corstyle}{mytheorem}{cor}
+
+\pdfsuppresswarningpagegroup=1
+
+\title{Analysis 2 Paper Draft}
+\author{Yuxuan Sun}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+Mathematical proofs could get more difficult to read and verify as they grow to be more complicated. What else could we rely on to verify the proofs are correct besides trust on each other's professionalism? Building on homotopy type theory, automated theorem proving has the ability to verify our proofs. As there are many moderm theorem provers, such as Agda, Lean, Coq, the intention of the paper is to give a brief introduction on how to construct basic analysis definitions and to prove theorems using \textit{Lean}, with sufficient explanations for mathematicians on how the language works.
+
+When preparing for this paper, I mainly rely on \cite{Avigad2016} and \cite{homotopy}, and sometimes from \cite{affeldt}. The choice of using \textit{Lean} is based on \cite{boldo}. Since the paper in general comes from understanding the mixture of the sources and the online library of \textit{Lean}, I won't be able to cite them separately in below.
+
+We will start with some very mathematically simple definitions and proofs, then move to a sequence-limit proof in Analysis I. Due to page limit, I will briefly introduce what the proofs related to functional analysis look like at the end.
+
+\section{Basic Definition and Proofs}
+
+Specifically, let's look at the definition of upper bounds written in Lean.
+
+\begin{listing}[!ht]
+\begin{minted}[escapeinside=||,mathescape=true]{c}
+def upperBounds (A : set |$\R$|) := { x : |$\R \quad \vert \quad  \forall $| a |$\in $| A,  a |$\le$| x }
+\end{minted}
+\end{listing}
+
+Here we defined a function named \texttt{upperBounds}, which takes one input: \texttt{A} whose \textbf{type} is a set of real numbers. The output of the function is a set (indicated by $\left\{ \quad \right\} $, and the type of elements \texttt{x} in the set is real numbers.  \texttt{x}  also need to satisfy the property that for all \texttt{a} $\in $ \texttt{A}, \texttt{a} $\le $ \texttt{x}.
+
+we could also define the maximum element in a set as the following.
+
+\begin{listing}[!ht]
+\begin{minted}[escapeinside=||,mathescape=true]{c}
+def isMaximum (a : |$\R$|) (A : set |$\R$|) := a |$\in$| A |$\land$| a |$\in$| upperBounds A
+\end{minted}
+\end{listing}
+
+This function \textbf{isMaximum} takes two inputs: \texttt{a} whose type is real number; \texttt{A} whose type is a set of real numbers.
+
+Its output is a boolean: \texttt{a} is in \texttt{A}  \textbf{and} \texttt{a} is in upperBounds \texttt{A}. Notice that here we called the function we defined above so upperBounds A is the output of the function defined above.
+
+An observation is that since the logical connection here is \textbf{and}, if \textbf{isMaximum a A} returns true, we are guaranteed two truth statements: $a$ is in  $A$ and  $a$ is in upperBounds A.  
+
+\bigskip
+
+Now we could prove something! 
+
+Let's prove that if both  $x$ and  $y$ are maximum of  $A$, then  $x = y$
+
+First a longer and more detailed proof is the following.
+
+\begin{listing}[!ht]
+\begin{minted}[xleftmargin=20pt,linenos,escapeinside=||, mathescape=true]{c}
+lemma uniqueMax (A : set |$\R$|) (x y : |$\R$|) 
+(hx : is_maximum x A) (hy : is_maximum y A) 
+: x = y 
+:= 
+begin
+	cases hx with x_in x_up,
+	cases hy with y_in y_up,
+	specialize x_up y,
+	specialize x_up y_in,
+	specialize y_up x x_in,
+	linarith,
+end
+\end{minted}	
+\end{listing}
+
+The lemma takes four assumptions: 
+
+\textbf{1. }\texttt{A} whose type is a set of real numbers
+
+\textbf{2. }\texttt{x,y} whose types are real numbers
+
+\textbf{3. }\texttt{hx} whose type is a boolean derived from \texttt{isMaximum} above. Recall that then it contains two statements: 
+
+\quad\textbf{a.} x is in A
+
+\quad\textbf{b.} x is in upperBounds A (x is bigger than anything in A)
+
+\textbf{4. }\texttt{hy} is similar as \texttt{hx} 
+
+Assumptions are usually stated before colon \textbf{:}
+
+After the colon it's the result we want to prove, namely: $x = y$
+
+\textbf{:=} indicates that  our proof begins.
+
+Now let's look at the details of the proof.
+
+At line 6, we have \texttt{cases ... with ...}, operations like this are called tactics in \textit{Lean}. It splits the hypothesis \texttt{hx} into two pieces, named \texttt{x\_in} and \texttt{x\_up}, corresponding to \textbf{3a} and \textbf{3b} respectively, because \texttt{hx} is a conjunction, it will be easier for us to use.
+
+
+\bigskip
+\begin{listing}[!ht]
+\begin{minted}[xleftmargin=20pt,linenos,escapeinside=||, mathescape=true]{c}
+lemma uniqueMax (A : set |$\R$|) (x y : |$\R$|) 
+(hx : is_maximum x A) (hy : is_maximum y A) 
+: x = y 
+:= 
+begin
+	have : x |$\le $| y, from hy.2 x hx.1,
+	have : y |$\le$| x, from hx.2 y hy.1,
+	linarith,
+end
+\end{minted}
+	
+\end{listing}
+
+
+To show $x = y$, we have two things to show:  $x \le y$ and $y \le x$. Let's focus on $x \le y$ for now.
+
+In order to \textbf{have} $x \le y$, we need to derive \textbf{from} \texttt{hy.2 x hx.1}. It might be easier to understand to view it as \texttt{(hy.2 x) hx.1} where \texttt{hy.2 x} yields the statement $x \in A \to  x\le y$ because \texttt{hy.2} corresponds to the second component of \texttt{isMaximum y A} which is y is bigger than anything in A. Then, \texttt{hx.1} tells us that x is indeed in A so the antecedent is satisfied, and we have $ x \le y$ eventually.
+
+Similar for $y \le x$.
+
+linarith is a basic linear arithmetic package lean has that allow us to turn $ x \le y$ and $y \le x$ into $x =y$. Thus our proof is done.
+
+\section{Sequence-Limit Definition and Proof}
+
+Let's prove another thing in analysis, namely, given two sequences $u_n, v_n$, if $u_n \to l$ and $v_n \to l'$ then $(u_n + v_n) \to (l+l')$
+
+\begin{listing}[!h]
+\begin{minted}[escapeinside=||, mathescape=true]{c}
+lemma sequenceAdd (hu : seq_limit u l1) (hv : seq_limit v l2) :
+seq_limit ( u + v) (l1 + l2)
+:=
+begin
+!!! fill in later
+end
+\end{minted}
+\end{listing}
+
+\section{functional analysis}
+\textcolor{red}{choose one of them}
+
+\begin{Theorem}{$L^1(\R)$ closed under addition}{}
+	Given $f_1, f_2 \in L^1(\R)$, then $f_1+f_2 \in L^1(\R)$, namely \[
+		\int_{-\infty}^{\infty} f_1(x) + f_2(x) dx = \int_{-\infty}^{\infty} f_1(x) dx + \int_{-\infty}^{\infty} f_2(x) dx
+	\] 
+\end{Theorem}
+
+\begin{listing}[!ht]
+\begin{minted}[escapeinside=||, mathescape=true]{c}
+lemma lintegral_nnnorm_add
+  {f : a |$\to$| b} {g : a |$\to$| y} 
+  (hf : ae_strongly_measurable f u) 
+  (hg : ae_strongly_measurable g u) 
+  : |$ \int^- $| a, nnnorm (f a) + nnnorm (g a) du = |$\int^-$| a, nnnorm (f a) du + |$\int^-$| a, nnnorm (g a) du :=
+	
+\end{minted}
+\end{listing}
+
+\begin{Theorem}{Monotone Convergence Theorem in $L^0$}{}
+	Suppose we have a sequence $f_n \in L^0(\R)$ with $f_1(x) \le  f_2(x) \le  f_3(x) \le  \ldots$ for all $x \in \R$ and suppose there exists a constant $M$ s.t.  $\int_{-\infty}^{\infty} f_n(x) dx \le  M$ for all $n$.
+
+	Then there eixsts  $f \in L^0(\R)$ s.t. $f_n \to f$ except possibly on a set of measure zero and \[
+		\lim_{n \to \infty} \int_{-\infty}^{\infty} f_n(x) dx = \int_{-\infty}^{\infty} f(x)dx
+	\] 
+\end{Theorem}
+
+\begin{listing}[!ht]
+\begin{minted}[escapeinside=||, mathescape=true]{c}
+theorem integral_supr {f : |$\N \to $| a |$ \to \R \ge 0 \infty $|} 
+(hf : |$\forall$| n, ae_measurable (f n) u)
+  (h_mono : |$\forall^m$| x du, monotone (|$\lambda$| n, f n x)) :
+  (|$int^-$| a, |$\cup$|n, f n a du) = (|$\cup$| n, |$\int^-$| a, f n a du) :=
+\end{minted}
+\end{listing}
+
+
+\newpage
+\printbibliography
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+

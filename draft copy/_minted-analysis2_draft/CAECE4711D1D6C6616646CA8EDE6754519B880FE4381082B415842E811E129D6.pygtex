@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{lemma} \PYG{n}{uniqueMax} \PYG{p}{(}\PYG{n+nl}{A} \PYG{p}{:} \PYG{n}{set} \PYG{esc}{$\R$}\PYG{p}{)} \PYG{p}{(}\PYG{n}{x} \PYG{n+nl}{y} \PYG{p}{:} \PYG{esc}{$\R$}\PYG{p}{)}
+\PYG{p}{(}\PYG{n+nl}{hx} \PYG{p}{:} \PYG{n}{is\PYGZus{}maximum} \PYG{n}{x} \PYG{n}{A}\PYG{p}{)} \PYG{p}{(}\PYG{n+nl}{hy} \PYG{p}{:} \PYG{n}{is\PYGZus{}maximum} \PYG{n}{y} \PYG{n}{A}\PYG{p}{)}
+\PYG{o}{:} \PYG{n}{x} \PYG{o}{=} \PYG{n+nl}{y}
+\PYG{p}{:}\PYG{o}{=}
+\PYG{n}{begin}
+	\PYG{n}{cases} \PYG{n}{hx} \PYG{n}{with} \PYG{n}{x\PYGZus{}in} \PYG{n}{x\PYGZus{}up}\PYG{p}{,}
+	\PYG{n}{cases} \PYG{n}{hy} \PYG{n}{with} \PYG{n}{y\PYGZus{}in} \PYG{n}{y\PYGZus{}up}\PYG{p}{,}
+	\PYG{n}{specialize} \PYG{n}{x\PYGZus{}up} \PYG{n}{y}\PYG{p}{,}
+	\PYG{n}{specialize} \PYG{n}{x\PYGZus{}up} \PYG{n}{y\PYGZus{}in}\PYG{p}{,}
+	\PYG{n}{specialize} \PYG{n}{y\PYGZus{}up} \PYG{n}{x} \PYG{n}{x\PYGZus{}in}\PYG{p}{,}
+	\PYG{n}{linarith}\PYG{p}{,}
+\PYG{n}{end}
+\end{Verbatim}

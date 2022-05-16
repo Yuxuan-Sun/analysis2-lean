@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{def} \PYG{n}{isMaximum} \PYG{p}{(}\PYG{n+nl}{a} \PYG{p}{:} \PYG{esc}{$\R$}\PYG{p}{)} \PYG{p}{(}\PYG{n+nl}{A} \PYG{p}{:} \PYG{n}{set} \PYG{esc}{$\R$}\PYG{p}{)} \PYG{o}{:}\PYG{o}{=} \PYG{n}{a} \PYG{esc}{$\in$} \PYG{n}{A} \PYG{esc}{$\land$} \PYG{n}{a} \PYG{esc}{$\in$} \PYG{n}{upperBounds} \PYG{n}{A}
+\end{Verbatim}
